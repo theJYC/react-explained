@@ -1,5 +1,7 @@
 # Fragments
 
+*tl;dr : Understanding fragmenting is useful, and may even be helpful when you want to clean up your virtual DOM tree. You should, however, only use fragmenting when your components are not involved in CSS styles (e.g. flexbox/grid) where the strict parent/child relationships need to be maintained.*
+
 In React, the components you create can only return a single parent element. 
 
 This means that you couldn't return two sibling elements; instead, you have to wrap them in a single parent element. In the below example, that parent element is represented by the outer div tags in the App component's return:
