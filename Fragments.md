@@ -2,7 +2,7 @@
 
 In React, the components you create can only return a single parent element. 
 
-This means that you couldn't return two sibling elements; instead, you have to wrap them in a single parent element. In the below example, that parent element is represented by the outer <div> tags in the App component's return:
+This means that you couldn't return two sibling elements; instead, you have to wrap them in a single parent element. In the below example, that parent element is represented by the outer div tags in the App component's return:
 
 ```jsx
 import React from "react"
@@ -46,7 +46,7 @@ This will mean that, upon render, React will insert the App component (and its c
 </html>
 ```
 
-*Comments written for illustration purposes*
+*comments written for illustration purposes*
 
 Notice here how the App component renders the JSX that you care about, within the single parent element `<div> </div>`. 
 
@@ -67,7 +67,7 @@ function App() {
 }
 ```
 
-In doing so, the App component will be inserted into the virtual DOM tree *without* the extra parent `<div>` tags that were present in the before example:
+In doing so, the App component will be inserted into the virtual DOM tree *without* the extra parent `<div>` tags that were present before:
 
 ```html
 <html>
@@ -85,13 +85,13 @@ In doing so, the App component will be inserted into the virtual DOM tree *witho
 </html>
 ```
 
-If using React.Fragment, you could clean up the code by performing a named import on top of the App.js file:
+You could even clean up the code by performing a named import on top of the App.js file:
 
 ```jsx
 import React, { Fragment } from "react"
 ```
 
-and just call `Fragment` in the JSX as:
+by just calling `Fragment` in the JSX as:
 ```jsx
 function App() {
     return (
@@ -103,7 +103,7 @@ function App() {
 }
 ```
 
-With updates to React, you can now use a short and simple syntax that will perform the same thing it would with `<React.Fragment>` or `<Fragment>`. You just have to write empty tags (`<>`):
+With updates to React (v16), you can now use a shorthand that will perform the same thing it would with `<React.Fragment>` or `<Fragment>`. You just have to write empty tags (`<>`):
 
 ```jsx
 function App() {
