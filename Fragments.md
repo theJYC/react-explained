@@ -1,4 +1,4 @@
-#Fragments
+# Fragments
 
 In React, the components you create can only return a single parent element. 
 
@@ -46,7 +46,7 @@ This will mean that, upon render, React will insert the App component (and its c
 </html>
 ```
 
-*<!--Comments--> written for illustration.*
+*Comments written for illustration purposes*
 
 Notice here how the App component renders the JSX that you care about, within the single parent element `<div> </div>`. 
 
@@ -103,7 +103,7 @@ function App() {
 }
 ```
 
-With updates to React, you can now use a short and simple syntax that will perform the same thing it would with `<React.Fragment>` or <Fragment>`. You just have to write empty tags (`<>`):
+With updates to React, you can now use a short and simple syntax that will perform the same thing it would with `<React.Fragment>` or `<Fragment>`. You just have to write empty tags (`<>`):
 
 ```jsx
 function App() {
@@ -122,4 +122,4 @@ This is because **fragmenting will change the parent/child relationship of your 
 
 tl;dr : Understanding fragmenting is useful, and may even be helpful when you want to clean up your virtual DOM tree. You should, however, only use fragmenting when your components are not involved in CSS styles (e.g. flexbox/grid) where the strict parent/child relationships need to be maintained. 
 
-[More info.](https://reactjs.org/docs/fragments.html)  
+[Official Doc](https://reactjs.org/docs/fragments.html)  
