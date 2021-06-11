@@ -68,3 +68,4 @@ Conversely, if you do pass in the `checked` prop in the parent component and it 
 
 N.B. You can add as many default props to the defaultProps object (as opposed to just one that is shown in the above example).
 
+[Official Doc](https://reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values)
