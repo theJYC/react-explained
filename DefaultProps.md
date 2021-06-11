@@ -1,8 +1,8 @@
 # Default Props
 
-*tl;dr : When you are **expecting** a parent component to return a child component with certain props, specifying default props for the child component enables you to automatically pass in the props in the case that those props are not passed in at the parent level.
+*tl;dr : When you are **expecting** a parent component to return a child component with certain props, specifying default props for the child component enables you to automatically pass in the props in the case that those props are not passed in at the parent level.*
 
-Say you have a parent component `List.js`, which returns 3 children elements `TodoItem.js`:
+Say you have a parent component `List.js`, which returns 3 children elements `ListItem.js`:
 
 ```jsx
 import React from "react"
@@ -10,35 +10,35 @@ import React from "react"
 function List() {
     return (
         <div>
-            <TodoItem info="groceries" checked="false" />
-            <TodoItem info="workout" checked="false" />
-            <TodoItem info="journal" checked="false" />
+            <ListItem info="groceries" checked="false" />
+            <ListItem info="workout" checked="false" />
+            <ListItem info="journal" checked="false" />
         </div>   
     )
 }
 ```
 
-Since you are manually passing in the props here, when you need to add an extra `<TodoItem info="walk"/>` to be returned, you may forget to pass in its respective `checked` prop:
+Since you are manually passing in the props here, when you need to add an extra `<ListItem info="walk"/>` to be returned, you may forget to pass in its respective `checked` prop:
 
 ```jsx
 function List() {
     return (
         <div>
-            <TodoItem info="groceries" checked="false" />
-            <TodoItem info="workout" checked="false" />
-            <TodoItem info="journal" checked="false" />
-            <TodoItem info="walk" />
+            <ListItem info="groceries" checked="false" />
+            <ListItem info="workout" checked="false" />
+            <ListItem info="journal" checked="false" />
+            <ListItem info="walk" />
         </div>   
     )
 }
 ```
 
-Depending on the devised logic of the `<TodoItem />` child component, this mistaken omit of the checked prop may break the application if the `checked` prop determines the way in which the `<TodoItem />` component is rendered. 
+Depending on the devised logic of the `<ListItem />` child component, this mistaken omit of the checked prop may break the application if the `checked` prop determines the way in which the `<ListItem />` component is rendered. 
 
-One way to prevent this breaking from happening is to define a set of default props to the functional component in question (<TodoItem />):
+One way to prevent this breaking from happening is to define a set of default props to the functional component in question (`<ListItem />`):
 
 ```jsx
-function TodoItem(props) {
+function ListItem(props) {
     return (
         <div>
             <label>{props.info}
@@ -47,17 +47,17 @@ function TodoItem(props) {
     )
 }
 
-//specifiying a static property defaultProps on the TodoItem functional component:
+//specifiying a static property defaultProps on the ListItem functional component:
 
-TodoItem.defaultProps = {
+ListItem.defaultProps = {
     
 }
 ```
 
-And within the TodoItem.defaultProps object, you can specify any value to the corresponding props:
+And within the ListItem.defaultProps object, you can specify any value to the corresponding props:
 
 ```jsx
-TodoItem.defaultProps = {
+ListItem.defaultProps = {
     checked : false
 }
 ```
