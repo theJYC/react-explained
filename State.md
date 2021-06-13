@@ -1,6 +1,6 @@
 # State
 
-*tl;dr: State is mutable data that is managed within a component. State can be mutated by the `setState()` method, which can either be passed in an object parameter or a functional parameter whereby the latter can make reference to the previous version of state.*
+*tl;dr: State is mutable data that is managed within a component. State can be mutated by the `setState()` method \[0\], which can pass in an object parameter or a functional parameter (whereby the latter can make reference to the previous version of state).*
 
 State is simply data that a component maintains. 
 
