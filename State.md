@@ -74,7 +74,8 @@ class App extends React.Component {
 
 Now, a brief analogy to preface the modification of state: 
 
-> State is akin to a set of clothes that you wear. When it comes time to change > your clothing, you don't modify your existing set of clothing (e.g. paint     > your t shirt to a new colour); 
+> State is akin to a set of clothes that you wear. 
+> When it comes time to change your clothing, you don't modify your existing set of clothing (e.g. paint your shirt to a new colour); 
 >
 > you completely replace your old clothes with your new clothes. 
 
@@ -95,8 +96,9 @@ class App extends React.Component {
         count : 0
     }
 
-    incrementCount() {
-        setState()
+    //arrow notation to bypass the necessity of binding
+    incrementCount = () => {
+        this.setState()
     }
 
     render() {
@@ -117,8 +119,8 @@ The first option would be to pass in an object:
 ```jsx
 ...
 
-    incrementCount() {
-        setState({
+    incrementCount = () => {
+        this.setState({
             count : 1
         })
     }
@@ -131,28 +133,17 @@ After the first time incrementCount() is called, though, the value of count will
 
 This is because `setState` is passing in an object (i.e. a fixed value), and hence it would be that every time `setState` is called, the state object *is* b eing updated, but *updated as the same object as the previously updated state object*.
 
-Consequently, a more practical parameter to pass into the `setState` method is a function. This function will typically be an anonymous function, which is going to receive the previous version of state (e.g. prevState) as its parameter:
+Consequently, a more practical parameter to pass into the `setState` method is a function. This function will typically be an anonymous function, which is going to receive the previous version of state (e.g. prevState) as its parameter.
+
+The benefit of the functional approach is that, by passing in prevState as the parameter, you can retain and make reference to the previous version of state. 
+
+i.e. this functional parameter can return an object (new version of state) with reference to the prevState:
 
 ```jsx
 ...
 
-    incrementCount() {
-        setState((prevState) => {
-
-        })
-    }
-...
-```
-
-The benefit of the functional approach is that you can retain the previous version of state (via the `prevState` parameter). 
-
-Now, this function can return an object with reference to the prevState:
-
-```jsx
-...
-
-    incrementCount() {
-        setState((prevState) => {
+    incrementCount = () => {
+        this.setState((prevState) => {
             return {
                 count: prevState.count + 1
             }
@@ -160,6 +151,8 @@ Now, this function can return an object with reference to the prevState:
     }
 ...
 ```
+
+[Doc](https://www.w3schools.com/react/react_state.asp) 
 
 
 \[0\] *Hooks enable you to use state via functional (vs. class-based) components. More on this on Hooks.md*
